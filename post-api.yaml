@@ -1,0 +1,714 @@
+  // 20230820191605
+    // http://localhost:8080/api/v1/v3/api-docs
+    
+    {
+      "openapi": "3.0.1",
+      "info": {
+        "title": "Post API Docs",
+        "description": "Post REST API Documintation",
+        "version": "v1.0.0"
+      },
+      "servers": [
+        {
+          "url": "http://localhost:8080/api/v1",
+          "description": "Generated server url"
+        }
+      ],
+      "paths": {
+        "/post/registration": {
+          "post": {
+            "tags": [
+              "Post Item api"
+            ],
+            "operationId": "postRegistration",
+            "requestBody": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PostItemDto"
+                  }
+                }
+              },
+              "required": true
+            },
+            "responses": {
+              "200": {
+                "description": "OK",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/PostItemDto"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Bad Request",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExceptionBody"
+                    }
+                  }
+                }
+              },
+              "404": {
+                "description": "Not Found",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExceptionBody"
+                    }
+                  }
+                }
+              },
+              "500": {
+                "description": "Internal Server Error",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExceptionBody"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/post-office/received/{postItemId}/{postOfficeId}": {
+          "post": {
+            "tags": [
+              "Post Office api"
+            ],
+            "operationId": "receivedByRecipient",
+            "parameters": [
+              {
+                "name": "postItemId",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              },
+              {
+                "name": "postOfficeId",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            ],
+            "requestBody": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PostMovementDto"
+                  }
+                }
+              },
+              "required": true
+            },
+            "responses": {
+              "200": {
+                "description": "OK",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/PostMovementDto"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Bad Request",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExceptionBody"
+                    }
+                  }
+                }
+              },
+              "404": {
+                "description": "Not Found",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExceptionBody"
+                    }
+                  }
+                }
+              },
+              "500": {
+                "description": "Internal Server Error",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExceptionBody"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/post-office/depart/{postItemId}/{postOfficeId}": {
+          "post": {
+            "tags": [
+              "Post Office api"
+            ],
+            "operationId": "departFromPostOffice",
+            "parameters": [
+              {
+                "name": "postItemId",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              },
+              {
+                "name": "postOfficeId",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            ],
+            "requestBody": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PostMovementDto"
+                  }
+                }
+              },
+              "required": true
+            },
+            "responses": {
+              "200": {
+                "description": "OK",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/PostMovementDto"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Bad Request",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExceptionBody"
+                    }
+                  }
+                }
+              },
+              "404": {
+                "description": "Not Found",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExceptionBody"
+                    }
+                  }
+                }
+              },
+              "500": {
+                "description": "Internal Server Error",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExceptionBody"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/post-office/create": {
+          "post": {
+            "tags": [
+              "Post Office api"
+            ],
+            "operationId": "postRegistration_1",
+            "requestBody": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PostOfficeDto"
+                  }
+                }
+              },
+              "required": true
+            },
+            "responses": {
+              "200": {
+                "description": "OK",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/PostOfficeDto"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Bad Request",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExceptionBody"
+                    }
+                  }
+                }
+              },
+              "404": {
+                "description": "Not Found",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExceptionBody"
+                    }
+                  }
+                }
+              },
+              "500": {
+                "description": "Internal Server Error",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExceptionBody"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/post-office/arrive/{postItemId}/{postOfficeId}": {
+          "post": {
+            "tags": [
+              "Post Office api"
+            ],
+            "operationId": "arriveAtPostOffice",
+            "parameters": [
+              {
+                "name": "postItemId",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              },
+              {
+                "name": "postOfficeId",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            ],
+            "requestBody": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "$ref": "#/components/schemas/PostMovementDto"
+                  }
+                }
+              },
+              "required": true
+            },
+            "responses": {
+              "200": {
+                "description": "OK",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/PostMovementDto"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Bad Request",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExceptionBody"
+                    }
+                  }
+                }
+              },
+              "404": {
+                "description": "Not Found",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExceptionBody"
+                    }
+                  }
+                }
+              },
+              "500": {
+                "description": "Internal Server Error",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExceptionBody"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/post/{id}/status": {
+          "get": {
+            "tags": [
+              "Post Item api"
+            ],
+            "operationId": "getMailItemStatus",
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "OK",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Bad Request",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExceptionBody"
+                    }
+                  }
+                }
+              },
+              "404": {
+                "description": "Not Found",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExceptionBody"
+                    }
+                  }
+                }
+              },
+              "500": {
+                "description": "Internal Server Error",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExceptionBody"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/post/{id}/history": {
+          "get": {
+            "tags": [
+              "Post Item api"
+            ],
+            "operationId": "getPostItemHistory",
+            "parameters": [
+              {
+                "name": "id",
+                "in": "path",
+                "required": true,
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            ],
+            "responses": {
+              "200": {
+                "description": "OK",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/PostMovement"
+                      }
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Bad Request",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExceptionBody"
+                    }
+                  }
+                }
+              },
+              "404": {
+                "description": "Not Found",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExceptionBody"
+                    }
+                  }
+                }
+              },
+              "500": {
+                "description": "Internal Server Error",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExceptionBody"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "/post-office/all": {
+          "get": {
+            "tags": [
+              "Post Office api"
+            ],
+            "operationId": "getAllPostOffices",
+            "responses": {
+              "200": {
+                "description": "OK",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/PostOfficeDto"
+                      }
+                    }
+                  }
+                }
+              },
+              "400": {
+                "description": "Bad Request",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExceptionBody"
+                    }
+                  }
+                }
+              },
+              "404": {
+                "description": "Not Found",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExceptionBody"
+                    }
+                  }
+                }
+              },
+              "500": {
+                "description": "Internal Server Error",
+                "content": {
+                  "*/*": {
+                    "schema": {
+                      "$ref": "#/components/schemas/ExceptionBody"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "components": {
+        "schemas": {
+          "ExceptionBody": {
+            "type": "object",
+            "properties": {
+              "message": {
+                "type": "string"
+              },
+              "errors": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "PostItemDto": {
+            "type": "object",
+            "properties": {
+              "type": {
+                "type": "string"
+              },
+              "zip": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "address": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              }
+            }
+          },
+          "PostMovementDto": {
+            "type": "object",
+            "properties": {
+              "movementType": {
+                "type": "string"
+              },
+              "movementDate": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          },
+          "PostOfficeDto": {
+            "type": "object",
+            "properties": {
+              "index": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "address": {
+                "type": "string"
+              }
+            }
+          },
+          "PostItem": {
+            "required": [
+              "address",
+              "name",
+              "zip"
+            ],
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "type": {
+                "$ref": "#/components/schemas/Type"
+              },
+              "zip": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "address": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "status": {
+                "type": "string",
+                "enum": [
+                  "READY_TO_SEND",
+                  "TRANSIT",
+                  "RECEIVED"
+                ]
+              }
+            }
+          },
+          "PostMovement": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "movementType": {
+                "type": "string"
+              },
+              "movementDate": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "movementStatus": {
+                "type": "string",
+                "enum": [
+                  "READY_TO_SEND",
+                  "TRANSIT",
+                  "RECEIVED"
+                ]
+              },
+              "postItem": {
+                "$ref": "#/components/schemas/PostItem"
+              },
+              "postOffice": {
+                "$ref": "#/components/schemas/PostOffice"
+              }
+            }
+          },
+          "PostOffice": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int64"
+              },
+              "index": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "address": {
+                "type": "string"
+              }
+            }
+          },
+          "Type": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "integer",
+                "format": "int32"
+              },
+              "name": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    }
